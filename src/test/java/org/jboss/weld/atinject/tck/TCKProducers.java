@@ -1,4 +1,4 @@
-/*
+package org.jboss.weld.atinject.tck;/*
  * JBoss, Home of Professional Open Source
  * Copyright 2010, Red Hat, Inc., and individual contributors
  * by the @authors tag. See the copyright.txt in the distribution for a
@@ -15,14 +15,13 @@
  * limitations under the License.
  */
 
-package org.jboss.weld.atinject.tck;
-
 import org.atinject.tck.auto.Drivers;
 import org.atinject.tck.auto.DriversSeat;
 import org.atinject.tck.auto.Seat;
 import org.atinject.tck.auto.Tire;
 import org.atinject.tck.auto.accessories.SpareTire;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.New;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.Typed;
@@ -32,18 +31,11 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-/**
- * Producer methods for the @Inject TCK beans we need greater control over
- *
- * @author pmuir
- */
-public class Producers {
+@ApplicationScoped
+public class TCKProducers {
 
     /**
      * Producer method for a bean with qualifier @Drivers and types Seat, Object
